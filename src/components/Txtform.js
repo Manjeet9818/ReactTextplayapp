@@ -57,13 +57,14 @@ const handleExtraSpaces=()=>
     return (
         <>
         <div className={`"container" style={{color:props.mode==='dark'?'white':'rgb(195 179 179)'}}`}>
- <h1>{props.heading}</h1>
+ <h3 className="" mb-4 >{props.heading}</h3>
 <div className="mb-3" my-2>
-    <textarea className="form-control" style={{backgroundcolor:props.mode==='light'?'rgb(195 179 179)':'light'}} onChange={handleonChange} value= {text} id="mybox" rows="8"></textarea>
-<button className="btn-primary  my-2 "onClick={handleupClick}   >Convert to upper case</button>
-<button className="btn-primary my-2 mx-3" onClick={handleloClick}   >Convert to lower  case</button>
-<button className="btn-primary my-2 mx-3" onClick={handletoCopy}   >copy</button>
-<button className="btn-primary my-2 mx-3" onClick={handleExtraSpaces} >remove extra spaces  </button>
+    <textarea className="form-control"
+     style={{backgroundColor : props.mode==='dark'?'rgb(195 179 179)':'white'}} onChange={handleonChange} value= {text} id="mybox" rows="8"></textarea>
+<button disabled={text.length===0} className="btn-primary  my-2 "onClick={handleupClick}   >Convert to upper case</button>
+<button disabled={text.length===0} className="btn-primary my-2 mx-3" onClick={handleloClick}   >Convert to lower  case</button>
+<button disabled={text.length===0} className="btn-primary my-2 mx-3" onClick={handletoCopy}   >copy</button>
+<button disabled={text.length===0} className="btn-primary my-2 mx-3" onClick={handleExtraSpaces} >remove extra spaces  </button>
 
 
 
@@ -74,10 +75,10 @@ const handleExtraSpaces=()=>
         <div className="container" style={{color:props.mode==='dark'?"white":"black"}}>
 
             <h1>your text summary</h1>
-            <p>{text.split(" ").length} word,{text.length} character</p>
-            <p>{0.008*text.split(" ").length} Minute read</p>
+            <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} word,{text.length} character</p>
+            <p>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} Minute read</p>
             <h2>preview</h2>
-            <p>{text.length>0?text:"Enter something in textarea"}</p>
+            <p>{text.length>0?text:"Nothing to priview"}</p>
         </div>
 
         </>

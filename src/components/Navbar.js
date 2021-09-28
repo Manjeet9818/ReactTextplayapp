@@ -2,12 +2,12 @@
 import PropTypes from 'prop-types'
 
 import React from 'react'
- import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 export default function Navbar(props) {
     return (
 
         
-    <nav className={`navbar navbar-expand-lg navbar-${props .mode} bg-${props.mode}`}>
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
   <div className="container-fluid">
     <Link className="navbar-brand" to="/">{props.title}</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,17 +25,25 @@ export default function Navbar(props) {
           <a className="nav-link" href="/">Pricing</a>
         </li>
       </ul>
-      <span className="navbar-text">
-        Navbar text with an inline element
-      </span>
+    <div className="d-flex">
+      <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{height:"30px",width:"30px",cursor:'pointer'}}></div>
+      <div className="bg-warning rounded mx-2" onClick={()=>{props.toggleMode('warning')}} style={{height:"30px",width:"30px",cursor:'pointer'}}></div>
+      <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{height:"30px",width:"30px",cursor:'pointer'}}></div>
+      <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{height:"30px",width:"30px",cursor:'pointer'}}></div>
+      <div className="bg-dark rounded mx-2" onClick={()=>{props.toggleMode('dark')}} style={{height:"30px",width:"30px",cursor:'pointer'}}></div>
+      <div className="bg-light rounded mx-2" onClick={()=>{props.toggleMode('light')}} style={{ height:"30px",width:"30px",cursor:'pointer'}}></div>
+
     </div>
+      
+
+  <div className=
+  {`form-check form-switch text-${props.mode==='light'?"dark":"light"}`}>
+  <input className="form-check-input" onClick={()=>{props.toggleMode(null)}} type="checkbox" id="flexSwitchCheckDefault"/>
+  <label className="form-check-label" htmlfor="flexSwitchCheckDefault">Toggle Mode</label>
+</div>
+</div>
   </div>
   
-
-  <div className={`form-check form-switch text-${props.mode==='light'?"dark":"light"}`}>
-  <input className="form-check-input" onClick={props.toggleMode} type="checkbox" id="flexSwitchCheckDefault"/>
-  <label className="form-check-label" htmlfor="flexSwitchCheckDefault">Enable Light Mode</label>
-</div>
 </nav>
 
  
