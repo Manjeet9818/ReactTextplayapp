@@ -19,7 +19,7 @@ export default function Navbar(props) {
           <Link className="nav-link active" aria-current="page" to="/">HOME</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/about">{props.fun}</Link>
+          <Link className="nav-link active" to="/about">{props.fun}</Link>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/">Pricing</a>
@@ -31,7 +31,7 @@ export default function Navbar(props) {
       <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{height:"30px",width:"30px",cursor:'pointer'}}></div>
       <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{height:"30px",width:"30px",cursor:'pointer'}}></div>
       <div className="bg-dark rounded mx-2" onClick={()=>{props.toggleMode('dark')}} style={{height:"30px",width:"30px",cursor:'pointer'}}></div>
-      <div className="bg-light rounded mx-2" onClick={()=>{props.toggleMode('light')}} style={{ height:"30px",width:"30px",cursor:'pointer'}}></div>
+      <div className="bg-light rounded mx-2" onClick={()=>{props.toggleMode('light')}}  style={{ height:"30px",width:"30px",cursor:'pointer'}}></div>
 
     </div>
       
